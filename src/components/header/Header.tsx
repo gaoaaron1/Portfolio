@@ -3,6 +3,8 @@ import './Header.css'
 import CTA from './CTA'
 import HeaderSocial from './HeaderSocials'
 
+
+
 const Header: React.FC = () => {
   return (
     <header>
@@ -12,7 +14,10 @@ const Header: React.FC = () => {
         <h5 className="text-light">Computer Science Student</h5>
         <CTA />
         <HeaderSocial />
-     
+
+        <div className="me">
+            
+        </div>      
 
         <a href="#contact" className='scroll__down'>Scroll Down</a>
       </div>
