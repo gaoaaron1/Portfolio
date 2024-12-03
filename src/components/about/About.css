@@ -1,11 +1,12 @@
 .about__container {
     display: grid;
-    grid-template-columns: 35% 50%; 
+    grid-template-columns: 75% 50%; 
     gap: 15;
+    margin-right: 50px;
 }
 
 .about__me {
-    width: 100%;
+    width: 75%;
     aspect-ratio: 1/1;
     border-radius: 2rem;
     background: linear-gradient(
@@ -21,7 +22,7 @@
 .about__me-image {
     border-radius: 2rem;
     overflow: hidden;
-    transform: rotate(10deg);
+    transform: rotate(2deg);
     transition: var(--transition);
 }
 
@@ -71,6 +72,69 @@
     margin: 2rem 0 2.6rem;
     color: var(--color-light);
 }
+
+
+.about__container2 {
+    background: transparent;
+    border: 2px solid var(--color-primary); 
+    border-radius: 1rem;
+    padding: 1.5rem; 
+    margin: 2rem 0;
+    overflow: hidden;
+    height: 300px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center text */
+    text-align: center; /* Center text horizontally */
+}
+
+.about__container2 p {
+    color: var(--color-light);
+    margin: 1rem 0;
+    overflow-wrap: break-word; /* Allows text to break and wrap to the next line if necessary */
+    word-wrap: break-word; /* Prevents words from overflowing */
+    word-break: break-word; /* Breaks long words if they exceed container width */
+    line-height: 1.5; /* Adjust line height for readability */
+    font-size: 1rem; /* Ensure text is not too large */
+}
+
+.about__container2 p {
+    text-align: center; /* Ensures the text is centered inside the container */
+}
+
+
+.about__arrows {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px; /* Space between arrows */
+}
+
+.about__arrow-left, .about__arrow-right {
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    color: white;
+    font-size: 2.5rem; /* Larger arrows */
+    padding: 10px 20px; /* Add padding for better click area */
+    border-radius: 50%; /* Make them round */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+/* Hover effect */
+.about__arrow-left:hover, .about__arrow-right:hover {
+    background-color: #2c2c6c; /* Darker green on hover */
+    transform: scale(1.2); /* Slightly enlarge the arrow on hover */
+}
+
+/* Focus effect for better accessibility */
+.about__arrow-left:focus, .about__arrow-right:focus {
+    outline: 2px solid #2c2c6c;
+    outline-offset: 4px;
+}
+
+
+
 
 
 /* Media queries to make it responsive.*/

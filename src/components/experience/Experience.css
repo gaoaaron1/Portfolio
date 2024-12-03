@@ -24,25 +24,84 @@
     color: var(--color-primary);
 }
 
+
 .experience__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 2rem;
 }
 
+
 .experience__details {
     display: flex;
     gap: 1rem;
 }
+
 
 .experience__details-icon {
     margin-top: 6px;
     color: var(--color-primary);
 }
 
-/* Media queries to make it responsive.*/
-/* ========================== MEDIA QUERIES (MEDIUM DEVICES) =================== */
-/* tablets */
+/* Container for skill name text and progress bar */
+.experience__details-content {
+    display: flex;
+    flex-direction: column; /* Stack skill name and progress bar vertically */
+    align-items: flex-start; /* Align items to the left */
+    width: 50%; /* Ensures text and bar are aligned properly */
+}
+
+/* Text for the skill name */
+.experience__details-text {
+    width: 150px; /* Fixed width for text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowed text */
+    text-overflow: ellipsis; /* Show ellipsis for long text */
+}
+
+
+/* Progress bar container */
+.experience__bar {
+    width: 100%; /* Ensure uniform width across all bars */
+    max-width: 300px; /* Fixed width for all bars */
+    height: 8px; /* Consistent height for all bars */
+    background: rgba(255, 255, 255, 0.2); /* Lighter translucent background for visibility */
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Add a border for better definition */
+}
+
+/* Progress bar fill */
+.experience__bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    background: var(--color-primary); /* Set color using variable for consistency */
+    width: 0%; /* Start with a width of 0%, to be set dynamically */
+}
+
+/* Skill levels */
+.basic {
+    width: 30%; /* Adjusted percentage for skill level */
+}
+
+.intermediate {
+    width: 60%; /* Adjusted percentage for skill level */
+}
+
+.experienced {
+    width: 90%; /* Adjusted percentage for skill level */
+}
+
+/* Optional glow effect for hover */
+.experience__bar:hover .experience__bar-fill {
+    filter: brightness(1.2); /* Brighten the bar on hover */
+}
+
+/* Media Queries for Responsiveness */
 @media screen and (max-width: 1024px) {
     .experience__container {
         grid-template-columns: 1fr;
@@ -53,15 +112,8 @@
         padding: 2rem;
         margin: 0 auto;
     }
-
-    .experience__content {
-        padding: 1rem;
-    }
 }
 
-/* Media queries to make it responsive.*/
-/* ========================== MEDIA QUERIES (SMALL DEVICES) =================== */
-/* phones */
 @media screen and (max-width: 600px) {
     .experience__container {
         gap: 1rem;
@@ -71,4 +123,4 @@
         width: 100%;
         padding: 2rem 1rem;
     }
-}
+} 
