@@ -1,0 +1,276 @@
+/* Container for the timeline section */
+.experience__timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    padding-left: 2rem;
+    margin-top: 2rem;
+  }
+  
+  /* Vertical timeline line */
+  .experience__timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 2rem;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--color-primary);
+    border-radius: 2px;
+  }
+  
+  /* Individual timeline entry */
+  .experience__timeline-entry {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+  
+  /* Dot on the timeline */
+  .experience__timeline-dot {
+    position: absolute;
+    left: -0.5rem;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--color-primary);
+    border: 2px solid var(--color-bg);
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  /* Content box for each entry */
+  .experience__timeline-content {
+    background: var(--color-bg-variant);
+    border: 1px solid var(--color-primary-variant);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    max-width: 750px; /* Restrict content width */
+    margin-left: auto; /* Center within timeline container */
+    margin-right: auto;
+  }
+  
+  .experience__timeline-content:hover {
+    transform: scale(1.02);
+    background: var(--color-primary-variant);
+  }
+  
+  /* Title and company */
+  .experience__timeline-content h3 {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+  }
+  
+  .experience__timeline-content h4 {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+  
+  .experience__timeline-content a {
+    text-decoration: none;
+    color: var(--color-secondary);
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .experience__timeline-content a:hover {
+    color: var(--color-primary);
+  }
+  
+  /* List of responsibilities */
+  .experience__timeline-content ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  .experience__timeline-content li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+
+  
+  /* Button */
+  .experience__btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  
+  .experience__btn:hover {
+    background: var(--color-primary-variant);
+  }
+  
+  /* Container for the timeline entry */
+  .experience__timeline-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-bg-variant);
+    border: 1px solid var(--color-primary-variant);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Info container (text and button) */
+  .experience__timeline-info {
+    flex: 1; /* Makes sure the text content takes up the available space */
+    margin-right: 1.5rem; /* Space between text and logo */
+  }
+  
+/* Company logo container */
+.experience__logo-container {
+    width: 200px; /* Width of the logo container */
+    height: 200px; /* Height of the logo container */
+    text-align: center;
+    background-color: white; /* White background for the container */
+    border-radius: 10px; /* Optional: rounded corners */
+    padding: 10px; /* Padding around the logo */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the logo inside the container */
+  }
+  
+  /* Company logo */
+  .experience__company-logo {
+    width: 100%; /* Ensure logo takes up full width of container */
+    height: 100%; /* Ensure logo takes up full height of container */
+    object-fit: contain; /* Maintains the logo's aspect ratio and ensures it fits the container */
+    border-radius: 8px; /* Rounded corners for the logo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  /* Optionally, you could add a hover effect on the logo */
+  .experience__company-logo:hover {
+    transform: scale(1.05); /* Slightly scale up the logo on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+  }
+  
+  
+  
+  /* Button */
+  .experience__btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  
+  .experience__btn:hover {
+    background: var(--color-primary-variant);
+  }
+  
+  /* Add animation to make the logo appear more dynamic */
+.experience__timeline-entry {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Optional: Apply some spacing for clarity */
+  .experience__timeline-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-bg-variant);
+    border: 1px solid var(--color-primary-variant);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* Media Queries */
+@media screen and (max-width: 1024px) {
+    .experience__timeline-container {
+      padding-left: 1rem;
+    }
+  
+    .experience__timeline-content {
+      width: 90%;
+      padding: 1rem 1rem;
+    }
+  
+    .experience__timeline-dot {
+      left: 0.5rem;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .experience__timeline-container {
+      gap: 1rem;
+    }
+  
+    .experience__timeline-content {
+      width: 90%;
+      padding: 1rem 1rem;
+      margin-left: -0.1rem;
+      flex-direction: column; /* Change direction to column */
+      align-items: center; /* Align the content to center */
+    }
+  
+    .experience__timeline-dot {
+      left: 0.6rem;
+    }
+  
+    .experience__timeline-info {
+      margin-right: 0;
+      margin-top: 1rem; /* Add space between logo and text */
+      text-align: center; /* Center the text */
+    }
+  
+    .experience__logo-container {
+      width: 120px; /* Make the logo larger */
+      height: 120px;
+      text-align: center;
+      background-color: white;
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem; /* Add space below logo */
+    }
+  
+    /* Increase logo size */
+    .experience__company-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+  
+    .experience__company-logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+        /* Move button below the logo */
+        .experience__btn {
+            margin-top: 1rem;
+        }
+  }

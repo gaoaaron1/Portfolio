@@ -4,6 +4,8 @@
     gap: 2rem;
 }
 
+
+
 .experience__container > div {
     background: var(--color-bg-variant);
     padding: 2.4rem 5rem;
@@ -96,6 +98,7 @@
     width: 90%; /* Adjusted percentage for skill level */
 }
 
+
 /* Optional glow effect for hover */
 .experience__bar:hover .experience__bar-fill {
     filter: brightness(1.2); /* Brighten the bar on hover */
@@ -124,3 +127,8 @@
         padding: 2rem 1rem;
     }
 } 
+
+
+
+
+
