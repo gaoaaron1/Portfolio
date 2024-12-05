@@ -1,34 +1,34 @@
-import React, { useState } from 'react'
-import { FaAward } from 'react-icons/fa'
-import { FiUsers } from 'react-icons/fi'
-import { VscFolderLibrary } from 'react-icons/vsc'
+import React, { useState } from 'react';
+import { FaAward } from 'react-icons/fa';
+import { FiUsers } from 'react-icons/fi';
+import { VscFolderLibrary } from 'react-icons/vsc';
 
-import './About.css'
-
-const ME = require('../../assets/portrait.png');
+import './About.css';
 
 const About: React.FC = () => {
-    const [currentCard, setCurrentCard] = useState(0); // State to keep track of the current card
+    const [currentCard, setCurrentCard] = useState(0);
 
-    // Array of content for the three cards
     const cardContent = [
         {
-            text: "I am a recent Computer Science graduate from the University of Calgary with a focus on Software Development. I am actively seeking for opportunities to apply and expand my technical skills and problem-solving abilities."
+            text: "I am a recent Computer Science graduate from the University of Calgary with a focus on Software Development. I am actively seeking opportunities to apply and expand my technical skills and problem-solving abilities. ",
+            image: require('../../assets/portrait3.jpg'), // Replace with your actual image paths
         },
         {
-            text: "Experienced Academic Tutor with a demonstrated history of working in the primary/secondary education industry. Skilled in Mobile/Web Front-end and Back-end Development. Strong education professional with a Bachelor of Science - BS focused in Computer Science from University of Calgary.\n\nI have demonstrated leadership both in tutoring and in my internship. I have managed the software development team and directed my colleagues on version control such as Github, created various content videos, and directed the database project."
+            text: "Experienced Academic Tutor with a demonstrated history of working in the primary/secondary education industry. Skilled in Mobile/Web Front-end and Back-end Development. Strong education professional with a Bachelor of Science - BS focused in Computer Science from University of Calgary.\n\nI have demonstrated leadership both in tutoring and in my internship. I have managed the software development team and directed my colleagues on version control such as Github, created various content videos, and directed the database project.",
+            image: require('../../assets/project2.png'),
         },
         {
-            text: "Proficient in various programming languages and web technologies, with hands-on experience in creating dynamic applications. Adept at problem-solving, critical thinking, and collaborating in agile environments. Looking to leverage my skills and knowledge to contribute to innovative projects and team success.\n\nI am excited to join your team and create a positive impact with my skill set!"
-        }
+            text: "Proficient in various programming languages and web technologies, with hands-on experience in creating dynamic applications. Adept at problem-solving, critical thinking, and collaborating in agile environments. Looking to leverage my skills and knowledge to contribute to innovative projects and team success.\n\nI am excited to join your team and create a positive impact with my skill set!",
+            image: require('../../assets/project3.png'),
+        },
     ];
 
     const handleNextCard = () => {
-        setCurrentCard((prev) => (prev + 1) % cardContent.length); // Loop back to first card after last one
+        setCurrentCard((prev) => (prev + 1) % cardContent.length);
     };
 
     const handlePrevCard = () => {
-        setCurrentCard((prev) => (prev - 1 + cardContent.length) % cardContent.length); // Loop to last card from first one
+        setCurrentCard((prev) => (prev - 1 + cardContent.length) % cardContent.length);
     };
 
     return (
@@ -38,29 +38,32 @@ const About: React.FC = () => {
 
             <div className="container about__container">
 
+                {/* Right Content */}
                 <div className="about__content">
                     <div className="about__cards">
                         <article className='about__card'>
-                            <FaAward className='about__icon'/>
+                            <FaAward className='about__icon' />
                             <h5>Experience</h5>
                             <small>3+ Years Working</small>
                         </article>
-
                         <article className='about__card'>
-                            <FiUsers className='about__icon'/>
+                            <FiUsers className='about__icon' />
                             <h5>Clients</h5>
                             <small>20+ Worldwide</small>
                         </article>
-
                         <article className='about__card'>
-                            <VscFolderLibrary className='about__icon'/>
+                            <VscFolderLibrary className='about__icon' />
                             <h5>Projects</h5>
                             <small>6+ Completed</small>
                         </article>
                     </div>
 
-                    <div className="about__text-container">
-                        <div className="about__container2">
+                    {/* Dynamic Card Content */}
+                    <div className="about__container2">
+                        <div className="about__card-photo">
+                            <img src={cardContent[currentCard].image} alt={`Card ${currentCard + 1}`} />
+                        </div>
+                        <div className="about__text-container">
                             <p>{cardContent[currentCard].text}</p>
                         </div>
                     </div>
