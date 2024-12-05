@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './CustomScrollbar.css';
 
 interface CustomScrollbarProps {
@@ -7,18 +7,36 @@ interface CustomScrollbarProps {
 
 const CustomScrollbar: React.FC<CustomScrollbarProps> = ({ children }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const updateSliderPosition = () => {
+      if (contentRef.current && sliderRef.current) {
+        const scrollTop = contentRef.current.scrollTop;
+        const scrollHeight = contentRef.current.scrollHeight;
+        const containerHeight = contentRef.current.clientHeight;
+        const sliderHeight = sliderRef.current.clientHeight;
+
+        const maxScrollTop = scrollHeight - containerHeight;
+        const newTop = (scrollTop / maxScrollTop) * (containerHeight - sliderHeight);
+        setScrollPosition(newTop);
+      }
+    };
+
+    updateSliderPosition();
+  }, [children]);
 
   const handleScroll = () => {
     if (contentRef.current && sliderRef.current) {
       const scrollTop = contentRef.current.scrollTop;
       const scrollHeight = contentRef.current.scrollHeight;
       const containerHeight = contentRef.current.clientHeight;
-
       const sliderHeight = sliderRef.current.clientHeight;
-      const maxScrollTop = scrollHeight - containerHeight;
 
+      const maxScrollTop = scrollHeight - containerHeight;
       const newTop = (scrollTop / maxScrollTop) * (containerHeight - sliderHeight);
       setScrollPosition(newTop);
     }
@@ -32,7 +50,6 @@ const CustomScrollbar: React.FC<CustomScrollbarProps> = ({ children }) => {
 
     const containerHeight = content.clientHeight;
     const maxScrollTop = content.scrollHeight - containerHeight;
-
     const startY = event.clientY;
     const startScrollTop = content.scrollTop;
 
@@ -43,12 +60,33 @@ const CustomScrollbar: React.FC<CustomScrollbarProps> = ({ children }) => {
     };
 
     const handleMouseUp = () => {
+      setIsDragging(false);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseup', handleMouseUp);
     };
 
+    setIsDragging(true);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseup', handleMouseUp);
+  };
+
+  const handleTrackClick = (event: React.MouseEvent) => {
+    if (!trackRef.current || !contentRef.current) return;
+
+    const track = trackRef.current;
+    const content = contentRef.current;
+    const trackRect = track.getBoundingClientRect();
+    const trackHeight = track.clientHeight;
+    const clickPosition = event.clientY - trackRect.top;
+    const sliderHeight = sliderRef.current?.clientHeight || 0;
+
+    const scrollHeight = content.scrollHeight;
+    const containerHeight = content.clientHeight;
+    const maxScrollTop = scrollHeight - containerHeight;
+    
+    const scrollTop = ((clickPosition - sliderHeight / 2) / trackHeight) * maxScrollTop;
+
+    content.scrollTop = scrollTop;
   };
 
   return (
@@ -60,7 +98,11 @@ const CustomScrollbar: React.FC<CustomScrollbarProps> = ({ children }) => {
       >
         {children}
       </div>
-      <div className="scrollbar-track">
+      <div
+        className="scrollbar-track"
+        ref={trackRef}
+        onClick={handleTrackClick}
+      >
         <div
           className="scrollbar-slider"
           style={{ top: `${scrollPosition}px` }}

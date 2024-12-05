@@ -1,10 +1,13 @@
 /* Base styles for the About section */
+
+
 .about__container {
-    display: grid;
-    grid-template-columns: 75% 50%; 
-    gap: 15px;
-    margin-right: 50px;
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: row; /* Horizontal alignment */
+    gap: 2rem; /* Add space between portrait and text */
+    align-items: center; /* Align items vertically */
 }
+
 
 .about__me {
     width: 75%;
@@ -64,20 +67,94 @@
     margin: 2rem 0 2.6rem;
     color: var(--color-light);
 }
-
-/* Dynamic content container */
+/* Animation for the about__container2 when switching cards */
 .about__container2 {
+    position: relative;
     background: transparent;
     border: 2px solid var(--color-primary);
     border-radius: 1rem;
     padding: 1.5rem;
     margin: 2rem 0;
-    overflow-y: auto; /* Make content scrollable if it overflows */
-    height: 300px; /* Fixed height */
+    overflow-y: hidden;
+    height: 360px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s forwards, slideIn 0.6s forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Slide from the left animation for the previous card */
+.about__container2.prev-card {
+    animation: slideInReverse 0.6s forwards, fadeIn 1s forwards;
+}
+
+@keyframes slideInReverse {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Hover effect to enlarge the container */
+.about__card-photo {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    border: 10px solid white;
+    border-radius: 10px;
+    background: linear-gradient(to bottom right, #f0f0f0, #e0e0e0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform: rotate(1deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Enlarge the photo container */
+  .about__card-photo:hover {
+    transform: scale(1.1); /* Enlarge the container */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Add a shadow for the expanded effect */
+  }
+  
+  /* Animation to fade in the image inside */
+  .about__card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+  }
+
+  
+@keyframes fadeInImage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .about__container2 p {
@@ -91,20 +168,7 @@
     text-align: center;
 }
 
-/* Scrollbar styling */
-.about__container2::-webkit-scrollbar {
-    width: 8px;
-}
 
-.about__container2::-webkit-scrollbar-thumb {
-    background-color: var(--color-primary);
-    border-radius: 10px;
-}
-
-.about__container2::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
 
 /* Arrow buttons */
 .about__arrows {
@@ -157,32 +221,9 @@
     object-fit: cover;
 }
 
-/* Fixed size for card photos */
-.about__card-photo {
-    position: relative;
-    width: 180px;  /* Fixed width */
-    height: 180px; /* Fixed height */
-    margin: 0 auto;
-    border: 10px solid white;
-    border-radius: 10px;
-    background: linear-gradient(to bottom right, #f0f0f0, #e0e0e0);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    transform: rotate(1deg); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.about__card-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-}
 
-.about__card-photo:hover {
-    transform: rotate(0);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
+
 
 /* Flexbox layout for card containers */
 .about__card-container {
@@ -254,3 +295,62 @@
         margin: 1.5rem 0;
     }
 }
+
+
+/* Hover effect to enlarge the image */
+.about__photo {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .about__photo:hover {
+    transform: scale(1.1); /* Enlarge the image */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add a shadow for effect */
+  }
+  
+  /* Modal overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal content */
+  .modal-content {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  /* Close button hover effect */
+  .modal-close:hover {
+    color: #ff0000;
+  }
+  
+
+  
