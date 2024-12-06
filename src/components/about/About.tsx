@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaAward } from 'react-icons/fa';
 import { FiUsers } from 'react-icons/fi';
 import { VscFolderLibrary } from 'react-icons/vsc';
@@ -12,20 +12,34 @@ const About: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);  // State for modal visibility
   const [modalImage, setModalImage] = useState('');    // State to store clicked image
 
+  // References for swipe handling
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
   const cardContent = [
     {
       text: "I am a recent Computer Science graduate from the University of Calgary with a focus on Software Development. I am actively seeking opportunities to apply and expand my technical skills and problem-solving abilities.",
       image: require('../../assets/portrait3.jpg'),
     },
     {
-      text: "Experienced Academic Tutor with a demonstrated history of working in the primary/secondary education industry. Skilled in Mobile/Web Front-end and Back-end Development. Strong education professional with a Bachelor of Science - BS focused in Computer Science from University of Calgary.\n\nI have demonstrated leadership both in tutoring and in my internship. I have managed the software development team and directed my colleagues on version control such as Github, created various content videos, and directed the database project. 555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555",
+      text: "Experienced Academic Tutor with a demonstrated history of working in the primary/secondary education industry. Skilled in Mobile/Web Front-end and Back-end Development. Strong education professional with a Bachelor of Science - BS focused in Computer Science from University of Calgary.",
       image: require('../../assets/project2.png'),
     },
     {
-      text: "Proficient in various programming languages and web technologies, with hands-on experience in creating dynamic applications. Adept at problem-solving, critical thinking, and collaborating in agile environments. Looking to leverage my skills and knowledge to contribute to innovative projects and team success.\n\nI am excited to join your team and create a positive impact with my skill set!",
+      text: "Proficient in various programming languages and web technologies, with hands-on experience in creating dynamic applications. Adept at problem-solving, critical thinking, and collaborating in agile environments. Looking to leverage my skills and knowledge to contribute to innovative projects and team success.",
       image: require('../../assets/project3.png'),
     },
   ];
+
+  // Automatic card change every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentCard((prev) => (prev + 1) % cardContent.length);
+      setAnimationDirection('next'); // Ensure animation direction is 'next' for automatic changes
+    }, 5000); // Change card every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, []);
 
   const handleNextCard = () => {
     setAnimationDirection('next');
@@ -35,6 +49,23 @@ const About: React.FC = () => {
   const handlePrevCard = () => {
     setAnimationDirection('prev');
     setCurrentCard((prev) => (prev - 1 + cardContent.length) % cardContent.length);
+  };
+
+  const handleSwipe = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      handleNextCard();
+    } else if (touchEndX.current - touchStartX.current > 50) {
+      handlePrevCard();
+    }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    handleSwipe();
   };
 
   const handleImageClick = (image: string) => {
@@ -71,39 +102,41 @@ const About: React.FC = () => {
             </article>
           </div>
 
-
-
-<div className={`about__container2 ${animationDirection === 'prev' ? 'prev-card' : ''}`}
+          <div
+            className={`about__container2 ${animationDirection === 'prev' ? 'prev-card' : ''}`}
             key={currentCard}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            style={{ opacity: 0 }} // Start with invisible state
           >
             <CustomScrollbar>
-            <div className="about__card-content">
-      <div className="about__text-container">
-        <p>{cardContent[currentCard].text}</p>
-      </div>
-      <div className="about__image-container">
-        <div className="about__card-photo">
-          <img
-            src={cardContent[currentCard].image}
-            alt={`Card ${currentCard + 1}`}
-            onClick={() => handleImageClick(cardContent[currentCard].image)} // Open modal on click
-            className="about__photo" // Apply the hover effect class to the image
-          />
-        </div>
-      </div>
-    </div>
+              <div className="about__card-content">
+                <div className="about__text-container">
+                  <p>{cardContent[currentCard].text}</p>
+                </div>
+                <div className="about__image-container">
+                  <div className="about__card-photo">
+                    <img
+                      src={cardContent[currentCard].image}
+                      alt={`Card ${currentCard + 1}`}
+                      onClick={() => handleImageClick(cardContent[currentCard].image)} // Open modal on click
+                      className="about__photo" // Apply the hover effect class to the image
+                    />
+                  </div>
+                </div>
+              </div>
             </CustomScrollbar>
           </div>
 
-
-
-          <div className="about__arrows">
-            <button onClick={handlePrevCard} className="about__arrow-left">
-              &#10094;
-            </button>
-            <button onClick={handleNextCard} className="about__arrow-right">
-              &#10095;
-            </button>
+          {/* Blue Dot Navigation */}
+          <div className="about__dots">
+            {cardContent.map((_, index) => (
+              <span
+                key={index}
+                className={`about__dot ${index === currentCard ? 'active' : ''}`}
+                onClick={() => setCurrentCard(index)}
+              ></span>
+            ))}
           </div>
 
           <a href="#contact" className="btn btn-primary">
