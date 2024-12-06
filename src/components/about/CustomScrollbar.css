@@ -39,3 +39,12 @@
 .scrollbar-slider:active {
   background: #333;
 }
+
+/* Hide the scrollbar by default */
+.scrollbar-track {
+  display: none;
+}
+
+.scrollbar-container .scrollbar-track {
+  display: block; /* Only show when content overflows */
+}

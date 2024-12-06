@@ -8,6 +8,7 @@ interface CustomScrollbarProps {
 const CustomScrollbar: React.FC<CustomScrollbarProps> = ({ children }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [isOverflowing, setIsOverflowing] = useState(false); // Added state for overflow detection
   const contentRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -26,7 +27,16 @@ const CustomScrollbar: React.FC<CustomScrollbarProps> = ({ children }) => {
       }
     };
 
+    const checkOverflow = () => {
+      if (contentRef.current) {
+        const contentHeight = contentRef.current.scrollHeight;
+        const containerHeight = contentRef.current.clientHeight;
+        setIsOverflowing(contentHeight > containerHeight);
+      }
+    };
+
     updateSliderPosition();
+    checkOverflow(); // Check if content overflows on initial load
   }, [children]);
 
   const handleScroll = () => {
@@ -83,7 +93,7 @@ const CustomScrollbar: React.FC<CustomScrollbarProps> = ({ children }) => {
     const scrollHeight = content.scrollHeight;
     const containerHeight = content.clientHeight;
     const maxScrollTop = scrollHeight - containerHeight;
-    
+
     const scrollTop = ((clickPosition - sliderHeight / 2) / trackHeight) * maxScrollTop;
 
     content.scrollTop = scrollTop;
@@ -98,18 +108,20 @@ const CustomScrollbar: React.FC<CustomScrollbarProps> = ({ children }) => {
       >
         {children}
       </div>
-      <div
-        className="scrollbar-track"
-        ref={trackRef}
-        onClick={handleTrackClick}
-      >
+      {isOverflowing && ( // Show scrollbar only if content is overflowing
         <div
-          className="scrollbar-slider"
-          style={{ top: `${scrollPosition}px` }}
-          ref={sliderRef}
-          onMouseDown={handleSliderDrag}
-        ></div>
-      </div>
+          className="scrollbar-track"
+          ref={trackRef}
+          onClick={handleTrackClick}
+        >
+          <div
+            className="scrollbar-slider"
+            style={{ top: `${scrollPosition}px` }}
+            ref={sliderRef}
+            onMouseDown={handleSliderDrag}
+          ></div>
+        </div>
+      )}
     </div>
   );
 };

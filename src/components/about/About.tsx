@@ -18,7 +18,7 @@ const About: React.FC = () => {
       image: require('../../assets/portrait3.jpg'),
     },
     {
-      text: "Experienced Academic Tutor with a demonstrated history of working in the primary/secondary education industry. Skilled in Mobile/Web Front-end and Back-end Development. Strong education professional with a Bachelor of Science - BS focused in Computer Science from University of Calgary.\n\nI have demonstrated leadership both in tutoring and in my internship. I have managed the software development team and directed my colleagues on version control such as Github, created various content videos, and directed the database project.",
+      text: "Experienced Academic Tutor with a demonstrated history of working in the primary/secondary education industry. Skilled in Mobile/Web Front-end and Back-end Development. Strong education professional with a Bachelor of Science - BS focused in Computer Science from University of Calgary.\n\nI have demonstrated leadership both in tutoring and in my internship. I have managed the software development team and directed my colleagues on version control such as Github, created various content videos, and directed the database project. 555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555",
       image: require('../../assets/project2.png'),
     },
     {
@@ -71,24 +71,31 @@ const About: React.FC = () => {
             </article>
           </div>
 
-          <div
-            className={`about__container2 ${animationDirection === 'prev' ? 'prev-card' : ''}`}
+
+
+<div className={`about__container2 ${animationDirection === 'prev' ? 'prev-card' : ''}`}
             key={currentCard}
           >
             <CustomScrollbar>
-              <div className="about__card-photo">
-                <img
-                  src={cardContent[currentCard].image}
-                  alt={`Card ${currentCard + 1}`}
-                  onClick={() => handleImageClick(cardContent[currentCard].image)} // Open modal on click
-                  className="about__photo" // Add class for hover effect
-                />
-              </div>
-              <div className="about__text-container">
-                <p>{cardContent[currentCard].text}</p>
-              </div>
+            <div className="about__card-content">
+      <div className="about__text-container">
+        <p>{cardContent[currentCard].text}</p>
+      </div>
+      <div className="about__image-container">
+        <div className="about__card-photo">
+          <img
+            src={cardContent[currentCard].image}
+            alt={`Card ${currentCard + 1}`}
+            onClick={() => handleImageClick(cardContent[currentCard].image)} // Open modal on click
+            className="about__photo" // Apply the hover effect class to the image
+          />
+        </div>
+      </div>
+    </div>
             </CustomScrollbar>
           </div>
+
+
 
           <div className="about__arrows">
             <button onClick={handlePrevCard} className="about__arrow-left">
