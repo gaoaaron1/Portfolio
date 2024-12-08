@@ -21,6 +21,7 @@ nav a {
     display: flex;
     color: var(--color-light);
     font-size: 1.1rem;
+    position: relative; /* Add this to position the tooltip */
 }
 
 nav a:hover {
@@ -30,4 +31,24 @@ nav a:hover {
 nav a.active { 
     background: var(--color-primary);
     color: var(--color-bg);
+}
+
+nav a .tooltip {
+    visibility: hidden;
+    position: absolute;
+    top: -30px; /* Adjust position */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+nav a:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
 }
