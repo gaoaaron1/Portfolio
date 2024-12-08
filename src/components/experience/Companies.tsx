@@ -1,10 +1,11 @@
-import React from 'react';
-import './Companies.css';  // Import the new CSS file
-
+import React, { useState } from 'react';
+import './Companies.css'; // Import the new CSS file
 
 const IHPLogo = require('../../assets/IHPLogo.png');
 const OutlierLogo = require('../../assets/OutlierLogo.png');
 const TutorDoctorLogo = require('../../assets/TutorDoctorLogo.jpg');
+const YMCALogo = require('../../assets/YMCA.jpg');
+const StampedeLogo = require('../../assets/CalgaryStampedeLogo.png');
 
 interface TimelineEntryProps {
   role: string;
@@ -50,18 +51,22 @@ const TimelineEntry: React.FC<TimelineEntryProps> = ({ role, companyName, compan
 };
 
 const Companies: React.FC = () => {
+  const [showAdditional, setShowAdditional] = useState(false);
+
+  const toggleAdditional = () => setShowAdditional(!showAdditional);
+
   return (
     <div className="experience__timeline-container">
-      {/* Example Timeline Entries */}
+      {/* Default Timeline Entries */}
       <TimelineEntry
         role="AI Evaluator"
         companyName="Outlier AI"
         companyUrl="https://outlier.ai/"
-        period="Jan 2020 - Jun 2023"
+        period="Jan 2024 - Present"
         responsibilities={[
-          'Developed responsive user interfaces with React.',
-          'Collaborated on e-commerce platform redesigns.',
-          'Improved performance, reducing page load time by 35%',
+          'Analyzed various code solutions attempting to address user prompts, identifying strengths, weaknesses, and areas for improvement',
+          'Developed test scenarios to assess AI performance on complex real-world challenges and edge cases',
+          'Documented insights to enhance AI evaluation processes and inform model training',
         ]}
         logoUrl={OutlierLogo}
       />
@@ -69,28 +74,62 @@ const Companies: React.FC = () => {
       <TimelineEntry
         role="Full Stack Developer"
         companyName="Interact Health PRO"
-        companyUrl="https://backendcorp.com"
-        period="Aug 2018 - Dec 2019"
+        companyUrl="https://interacthealthpro.com/"
+        period="Aug 2023 - Present"
         responsibilities={[
-          'Designed RESTful APIs for customer platforms.',
-          'Implemented database solutions using MySQL.',
-          'Automated server-side processes to optimize workflows.',
+          'Designed RESTful APIs for customer platforms',
+          'Implemented database solutions using MySQL',
+          'Automated server-side processes to optimize workflows',
         ]}
         logoUrl={IHPLogo}
       />
 
-    <TimelineEntry
+      <TimelineEntry
         role="Academic Tutor"
         companyName="Tutor Doctor"
-        companyUrl="https://backendcorp.com"
-        period="Aug 2018 - Dec 2019"
+        companyUrl="https://www.tutordoctor.com/calgary/"
+        period="Jan 2020 - Present"
         responsibilities={[
-          'Designed RESTful APIs for customer platforms.',
-          'Implemented database solutions using MySQL.',
-          'Automated server-side processes to optimize workflows.',
+          'Mentored 20+ students (grades 7-12), enhancing their understanding of course material',
+          'Developed personalized tutoring content, including lesson plans, practice problems, and resources',
+          'Provided academic support in Mathematics, Science, English, and Social Studies',
         ]}
         logoUrl={TutorDoctorLogo}
-      />      
+      />
+
+      {/* Additional Experiences */}
+      {showAdditional && (
+        <>
+          <TimelineEntry
+            role="Mathematics Tutor"
+            companyName="YMCA"
+            companyUrl="https://www.ymcacalgary.org/"
+            period="Oct 2019 – April 2020"
+            responsibilities={[
+               'Provided mentoring to groups of up to five individuals, adeptly tailoring guidance to meet the diverse learning needs of each student',
+               'Consulted with other colleagues to provide personal thoughts on strategies to help students improve their grades by up to 20%', 
+              ]}
+            logoUrl={YMCALogo}
+          />
+
+          <TimelineEntry
+            role="Summer Guest Ambassador"
+            companyName="Calgary Stampede"
+            companyUrl="https://www.calgarystampede.com/"
+            period="July 2017"
+            responsibilities={[
+            'Delivered exceptional customer service by assisting thousands of attendees daily, ensuring a positive and welcoming event experience',
+            'Set up and managed event logistics, including posters, stanchions, and turnstiles, maintaining organized and visually appealing spaces',
+            'Operated ticket scanning systems efficiently, facilitating smooth entry for guests and reducing wait times']}
+            logoUrl={StampedeLogo}
+          />
+        </>
+      )}
+
+      {/* Toggle Button */}
+      <button onClick={toggleAdditional} className="experience__btn">
+        {showAdditional ? 'Collapse Experiences' : 'Show More Experiences'}
+      </button>
     </div>
   );
 };

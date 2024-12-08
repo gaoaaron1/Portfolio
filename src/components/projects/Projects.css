@@ -51,3 +51,14 @@
         gap: 1rem;
     }
 }
+
+/* Style for the disabled "Coming Soon" button */
+.btn-disabled {
+    background-color: #d3d3d3; /* Grey background */
+    color: #666666; /* Darker grey text for better visibility */
+    cursor: not-allowed;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}

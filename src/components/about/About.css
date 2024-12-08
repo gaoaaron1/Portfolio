@@ -85,12 +85,27 @@
     animation: fadeIn 1s forwards, slideIn 0.6s forwards;
 }
 
+.about__container2 .btn {
+  align-self: flex-start; /* Moves the button to the top left or top right */
+  margin-top: 1rem; /* Adds spacing between the content and the button */
+  align-content: left;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -103,9 +118,8 @@
     }
 }
 
-/* Slide from the left animation for the previous card */
 .about__container2.prev-card {
-    animation: slideInReverse 0.6s forwards, fadeIn 1s forwards;
+  animation: fadeOut 1s forwards, slideInReverse 0.6s forwards, fadeIn 1s forwards;
 }
 
 @keyframes slideInReverse {
@@ -162,17 +176,21 @@
 }
 
 .about__container2 p {
-    color: var(--color-light);
-    margin: 1rem 0;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-    line-height: 1.5;
-    font-size: 1rem; /* Standardize font size */
-    text-align: center;
+  color: #f5f5f5; /* Brighter white */
+  margin: 1rem 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  line-height: 1.5;
+  font-size: 1.1rem; /* Slightly larger font size */
+  text-align: center; /* Ensure text is centered */
 }
 
-
+/* Optional: Increase font size for .about__text-container text as well */
+.about__text-container p {
+  color: #f5f5f5; /* Brighter white */
+  font-size: 1.1rem; /* Slightly larger font size */
+}
 
 /* Arrow buttons */
 .about__arrows {
@@ -182,16 +200,6 @@
     gap: 20px;
 }
 
-.about__arrow-left, .about__arrow-right {
-    background-color: #4CAF50; /* Green background */
-    border: none;
-    color: white;
-    font-size: 2.5rem; /* Larger arrows */
-    padding: 10px 20px; /* Add padding for better click area */
-    border-radius: 50%; /* Make them round */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
-}
 
 /* Hover effect */
 .about__arrow-left:hover, .about__arrow-right:hover {
@@ -380,11 +388,28 @@
 
 
 /* Text container */
+
+
 .about__text-container {
+  display: flex;
   flex: 1;
+  flex-direction: column;
   margin-right: 2rem; /* Space between text and image */
   padding-right: 20px; /* Add some padding */
+  align-items: flex-start; /* Ensures the button and text align to the left */
 }
+
+.about__container2 .btn {
+  align-self: flex-start; /* Aligns the button to the left */
+  margin-top: 1.5rem; /* Optional: adds space above the button */
+}
+
+.about__text-container a {
+  margin-top: 1.5rem;
+  display: inline-block;
+  text-align: center;
+}
+
 
 /* Image container */
 .about__image-container {
@@ -431,16 +456,25 @@
 }
 
 /* Text styling inside the card */
-.about__text-container p {
-  color: var(--color-light);
-  margin: 1rem 0;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-  line-height: 1.5;
-  font-size: 1rem;
-  text-align: left;
+
+.about__container2 p {
+    color: #f5f5f5; /* Brighter white */
+    margin: 1rem 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.5;
+    font-size: 1.1rem; /* Slightly larger font size */
+    text-align: center; /* Ensure text is centered */
 }
+
+/* Optional: Increase font size for .about__text-container text as well */
+.about__text-container p {
+    color: #f5f5f5; /* Brighter white */
+    font-size: 1.05rem; /* Slightly larger font size */
+}
+
+
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {

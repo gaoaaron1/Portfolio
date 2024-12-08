@@ -97,11 +97,41 @@ const Experience: React.FC = () => {
               <div className="experience__details-content">
                 <h4 className="experience__details-text">Python</h4>
                 <div className="experience__bar">
+                  <div className="experience__bar-fill intermediate"></div>
+                </div>
+                <span className="experience__tooltip">Intermediate</span>
+              </div>
+            </article>
+            <article className="experience__details">
+              <BsPatchCheckFill className="experience__details-icon" />
+              <div className="experience__details-content">
+                <h4 className="experience__details-text">.NET</h4>
+                <div className="experience__bar">
                   <div className="experience__bar-fill experienced"></div>
                 </div>
                 <span className="experience__tooltip">Experienced</span>
               </div>
-            </article>
+            </article>    
+            <article className="experience__details">
+              <BsPatchCheckFill className="experience__details-icon" />
+              <div className="experience__details-content">
+                <h4 className="experience__details-text">MongoDB</h4>
+                <div className="experience__bar">
+                  <div className="experience__bar-fill intermediate"></div>
+                </div>
+                <span className="experience__tooltip">Intermediate</span>
+              </div>
+            </article>   
+            <article className="experience__details">
+              <BsPatchCheckFill className="experience__details-icon" />
+              <div className="experience__details-content">
+                <h4 className="experience__details-text">Java</h4>
+                <div className="experience__bar">
+                  <div className="experience__bar-fill experienced"></div>
+                </div>
+                <span className="experience__tooltip">Experienced</span>
+              </div>
+            </article>                               
           </div>
         </div>
       </div>
