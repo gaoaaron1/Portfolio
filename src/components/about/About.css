@@ -1,19 +1,19 @@
+/* Base styles for the About section */
+
+
 .about__container {
-    display: grid;
-    grid-template-columns: 35% 50%; 
-    gap: 15;
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: row; /* Horizontal alignment */
+    gap: 2rem; /* Add space between portrait and text */
+    align-items: center; /* Align items vertically */
 }
 
+
 .about__me {
-    width: 100%;
+    width: 75%;
     aspect-ratio: 1/1;
     border-radius: 2rem;
-    background: linear-gradient(
-        45 deg,
-        transparent,
-        var(--color-primary),
-        transparent
-    );
+    background: linear-gradient(45deg, transparent, var(--color-primary), transparent);
     display: grid;
     place-items: center;
 }
@@ -21,7 +21,7 @@
 .about__me-image {
     border-radius: 2rem;
     overflow: hidden;
-    transform: rotate(10deg);
+    transform: rotate(2deg);
     transition: var(--transition);
 }
 
@@ -29,13 +29,11 @@
     transform: rotate(0);
 }
 
+/* About cards (Experience, Clients, Projects) */
 .about__cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-}
-
-.about__cards {
     background: var(--color-bg-variant);
     border: 1px solid transparent;
     border-radius: 1rem;
@@ -46,8 +44,7 @@
 
 .about__card:hover {
     background: transparent;
-    border-color: var(--color-primary-variant)
-    ;
+    border-color: var(--color-primary-variant);
     cursor: default;
 }
 
@@ -61,7 +58,6 @@
     font-size: 0.95rem;
 }
 
-
 .about__card small {
     font-size: 0.7rem;
     color: var(--color-light);
@@ -71,11 +67,210 @@
     margin: 2rem 0 2.6rem;
     color: var(--color-light);
 }
+/* Animation for the about__container2 when switching cards */
+.about__container2 {
+    position: relative;
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    overflow-y: hidden;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s forwards, slideIn 0.6s forwards;
+}
+
+.about__container2 .btn {
+  align-self: flex-start; /* Moves the button to the top left or top right */
+  margin-top: 1rem; /* Adds spacing between the content and the button */
+  align-content: left;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.about__container2.prev-card {
+  animation: fadeOut 1s forwards, slideInReverse 0.6s forwards, fadeIn 1s forwards;
+}
+
+@keyframes slideInReverse {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Default styling for larger screens */
+.about__card-photo {
+    position: relative;
+    width: 180px; /* Default size */
+    height: 180px;
+    margin: 0 auto; /* Center the container horizontally */
+    border: 10px solid white;
+    border-radius: 10px;
+    background: linear-gradient(to bottom right, #f0f0f0, #e0e0e0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform: rotate(1deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Enable flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  
+  /* Enlarge the photo container */
+  .about__card-photo:hover {
+    transform: scale(1.1); /* Enlarge the container */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Add a shadow for the expanded effect */
+  }
+  
+  /* Animation to fade in the image inside */
+  .about__card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+  }
+
+  
+@keyframes fadeInImage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.about__container2 p {
+  color: #f5f5f5; /* Brighter white */
+  margin: 1rem 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  line-height: 1.5;
+  font-size: 1.1rem; /* Slightly larger font size */
+  text-align: center; /* Ensure text is centered */
+}
+
+/* Optional: Increase font size for .about__text-container text as well */
+.about__text-container p {
+  color: #f5f5f5; /* Brighter white */
+  font-size: 1.1rem; /* Slightly larger font size */
+}
+
+/* Arrow buttons */
+.about__arrows {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
 
 
-/* Media queries to make it responsive.*/
-/* ========================== MEDIA QUERIES (MEDIUM DEVICES) =================== */
-/* tablets */
+/* Hover effect */
+.about__arrow-left:hover, .about__arrow-right:hover {
+    background-color: #2c2c6c; /* Darker green on hover */
+    transform: scale(1.2); /* Slightly enlarge the arrow on hover */
+}
+
+/* Focus effect for better accessibility */
+.about__arrow-left:focus, .about__arrow-right:focus {
+    outline: 2px solid #2c2c6c;
+    outline-offset: 4px;
+}
+
+/* Portrait image styling */
+.about__portrait {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 0 auto;
+    border: 5px solid var(--color-primary);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about__portrait img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+
+
+
+/* Flexbox layout for card containers */
+.about__card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Text inside cards */
+.about__card-text p {
+    color: var(--color-light);
+    margin: 1rem 0;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+/* Optional staggered stack for multiple photos */
+.about__card-photo:nth-child(1) {
+    transform: rotate(-2deg);
+}
+
+.about__card-photo:nth-child(2) {
+    transform: rotate(3deg);
+}
+
+.about__card-photo:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+/* Media queries for responsive design */
+
+/* Tablets: Max-width: 1024px */
 @media screen and (max-width: 1024px) {
     .about__container {
         grid-template-columns: 1fr;
@@ -92,9 +287,7 @@
     }
 }
 
-/* Media queries to make it responsive.*/
-/* ========================== MEDIA QUERIES (SMALL DEVICES) =================== */
-/* phones */
+/* Phones: Max-width: 600px */
 @media screen and (max-width: 600px) {
     .about__me {
         width: 65%;
@@ -105,7 +298,7 @@
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
     }
-  
+
     .about__content {
         text-align: center;
     }
@@ -113,4 +306,252 @@
     .about__content p {
         margin: 1.5rem 0;
     }
+}
+
+
+/* Hover effect to enlarge the image */
+.about__photo {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .about__photo:hover {
+    transform: scale(1.1); /* Enlarge the image */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add a shadow for effect */
+  }
+  
+  /* Modal overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal content */
+  .modal-content {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  /* Close button hover effect */
+  .modal-close:hover {
+    color: #ff0000;
+  }
+  
+
+/* Flexbox container to hold text and image */
+.about__container2 {
+  display: flex;
+  justify-content: space-between; /* Space between text and image */
+  align-items: center; /* Align vertically */
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  height: 360px;
+}
+
+.about__card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns items to the top */
+    width: 100%;
+  }
+  
+
+
+/* Text container */
+
+
+.about__text-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-right: 2rem; /* Space between text and image */
+  padding-right: 20px; /* Add some padding */
+  align-items: flex-start; /* Ensures the button and text align to the left */
+}
+
+.about__container2 .btn {
+  align-self: flex-start; /* Aligns the button to the left */
+  margin-top: 1.5rem; /* Optional: adds space above the button */
+}
+
+.about__text-container a {
+  margin-top: 1.5rem;
+  display: inline-block;
+  text-align: center;
+}
+
+
+/* Image container */
+.about__image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns the image container at the top */
+    margin-top: 1rem;  /* Adjust this value to move the photo lower */
+  }
+
+/* Image photo container */
+.about__card-photo {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  border: 10px solid white;
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, #f0f0f0, #e0e0e0);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transform: rotate(1deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on photo container */
+.about__card-photo:hover {
+  transform: scale(1.1); /* Enlarge the container */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+}
+
+/* Hover effect on the image itself */
+.about__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease; /* Apply transition to image itself */
+}
+
+/* Hover effect on image: enlarge it */
+.about__photo:hover {
+  transform: scale(1.1); /* Enlarge the image on hover */
+}
+
+/* Text styling inside the card */
+
+.about__container2 p {
+    color: #f5f5f5; /* Brighter white */
+    margin: 1rem 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.5;
+    font-size: 1.1rem; /* Slightly larger font size */
+    text-align: center; /* Ensure text is centered */
+}
+
+/* Optional: Increase font size for .about__text-container text as well */
+.about__text-container p {
+    color: #f5f5f5; /* Brighter white */
+    font-size: 1.05rem; /* Slightly larger font size */
+}
+
+
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1024px) {
+  .about__container2 {
+    flex-direction: column; /* Stack text and image on top of each other on smaller screens */
+    text-align: center;
+  }
+
+  .about__card-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .about__text-container,
+  .about__image-container {
+    flex: none;
+    width: 100%;
+  }
+
+  .about__card-photo {
+    width: 150px; /* Smaller photo size on tablets */
+    height: 150px;
+  }
+
+  .about__photo {
+    width: 100%; /* Ensure photo takes full width inside container */
+    height: auto;
+  }
+}
+
+/* Phones: Max-width: 600px */
+@media screen and (max-width: 600px) {
+    .about__container {
+      flex-direction: column; /* Stack about cards vertically */
+      gap: 1rem; /* Adjust gap for better spacing */
+    }
+  
+    .about__cards {
+      grid-template-columns: 1fr 1fr; /* Display cards in 2 columns */
+    }
+  
+    .about__card {
+      width: 100%; /* Ensure each card takes full width */
+    }
+  
+    .about__container2 {
+      padding: 1rem; /* Reduce padding for smaller screens */
+      height: auto; /* Let the height adjust based on content */
+    }
+
+    .about__card-photo {
+        width: 120px; /* Even smaller photo on phones */
+        height: 120px;
+      }
+    
+      .about__photo {
+        width: 100%; /* Ensure photo takes full width inside container */
+        height: auto;
+      }
+  }
+
+  .about__dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.about__dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc; /* Default inactive color */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.about__dot.active {
+  background-color: #007bff; /* Blue for active */
 }
