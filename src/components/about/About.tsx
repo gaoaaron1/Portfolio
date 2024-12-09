@@ -181,7 +181,7 @@ const About: React.FC = () => {
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <img src={modalImage} alt="Modal View" className="modal-image" />
-            <button className="modal-close" onClick={closeModal}>
+            <button className="modal-close2" onClick={closeModal}>
               &#10006; {/* Close button */}
             </button>
           </div>

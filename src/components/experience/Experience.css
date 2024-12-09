@@ -4,6 +4,16 @@
     gap: 2rem;
 }
 
+#experience h5 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+  
+#experience h2 {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
 
 
 .experience__container > div {
@@ -103,6 +113,18 @@
 .experience__bar:hover .experience__bar-fill {
     filter: brightness(1.2); /* Brighten the bar on hover */
 }
+
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1324px) {
+
+    .experience__container > div {
+        width: 100%;
+        padding: 2rem;
+        margin: 0 -1rem;
+    }
+}
+
 
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 1024px) {

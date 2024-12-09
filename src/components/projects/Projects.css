@@ -20,7 +20,25 @@
 .projects__item-image {
     border-radius: 1.5rem;
     overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* To keep the image transformations contained */
 }
+
+.projects__item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+}
+
+.projects__item-image:hover img {
+    transform: scale(1.1); /* Zoom in the image slightly on hover */
+}
+
 
 .projects__item h3 {
     margin: 1.2rem 0 2rem;
