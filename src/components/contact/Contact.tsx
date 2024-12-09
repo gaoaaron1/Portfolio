@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './Contact.css';
 import { MdOutlineEmail } from 'react-icons/md';
 import { RiMessengerLine } from 'react-icons/ri';
@@ -7,14 +7,19 @@ import emailjs from 'emailjs-com';
 
 const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
+  const [alertVisible, setAlertVisible] = useState(false);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (form.current) {
-      emailjs.sendForm('service_o0fg2vc', 'template_rs20yuo', form.current, 'WHVdy-jYRA2bQ1j2t')
+      emailjs.sendForm('service_fh39fgb', 'template_spomdqu', form.current, 'WHVdy-jYRA2bQ1j2t')
         .then(() => {
           console.log('Email sent successfully!');
+          setAlertVisible(true); // Show the alert
+
+          // Hide the alert after 3 seconds
+          setTimeout(() => setAlertVisible(false), 3000);
         })
         .catch((error) => {
           console.error('Error sending email:', error);
@@ -52,16 +57,17 @@ const Contact: React.FC = () => {
             <a href="https://wa.me/+5879666258" target="_blank" rel="noopener noreferrer">Send a message</a>
           </article>
         </div>
-        {/* END OF CONTACT OPTIONS */}
 
-        {/* Form where people are required to enter a name.*/}
         <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name='name' placeholder='Your Full Name' required />
-          <input type="email" name='email' placeholder='Your Email' required />
+          <input type="text" name='from_name' placeholder='Your Full Name' required />
+          <input type="email" name='from_email' placeholder='Your Email' required />
           <textarea name="message" rows={7} placeholder='Your Message' required ></textarea>
           <button type='submit' className='btn btn-primary'>Send Message</button>
         </form>
       </div>
+
+      {/* Alert Notification */}
+      {alertVisible && <div className="alert">Your message has been sent!</div>}
     </section>
   );
 }
