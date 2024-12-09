@@ -1,0 +1,50 @@
+.scrollbar-container {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Adjust as needed */
+  overflow: hidden;
+}
+
+.scrollable-content {
+  overflow-y: scroll;
+  height: 100%;
+  padding-right: 15px; /* Avoid content overlap with the scrollbar */
+}
+
+.scrollbar-track {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background: #e0e0e0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.scrollbar-slider {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background: #888;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.scrollbar-slider:hover {
+  background: #555;
+}
+
+.scrollbar-slider:active {
+  background: #333;
+}
+
+/* Hide the scrollbar by default */
+.scrollbar-track {
+  display: none;
+}
+
+.scrollbar-container .scrollbar-track {
+  display: block; /* Only show when content overflows */
+}

@@ -1,0 +1,105 @@
+header {
+    min-height: 100vh; /* Use minimum height */
+    height: auto; /* Allow header to grow if needed */
+    padding-top: 7rem;
+    overflow: hidden;
+}
+
+
+.header__container {
+    text-align: center;
+    height: 100%;
+    position: relative;
+}
+
+/* ======================== CTA =================== */
+.cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+}
+
+/* ======================== HEADER SOCIALS =================== */
+.header__socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    position: absolute;
+    transform: scale(1.2); /* Scale the entire container */
+    bottom: 3rem;
+}
+
+.header__socials::after {
+    content: "";
+    width: 1px;
+    height: 2rem;
+    background: var(--color-primary);
+}
+
+/* ======================== ME =================== */
+@keyframes hoverAnimation {
+    0% {
+        transform: translateY(0); /* Start position */
+    }
+    50% {
+        transform: translateY(-10px); /* Hover up */
+    }
+    100% {
+        transform: translateY(0); /* Return to start */
+    }
+}
+
+.me {
+    margin-top: 2rem; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: hoverAnimation 3s ease-in-out infinite; /* Apply hovering animation */
+}
+
+.me img {
+    width: 25rem; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Optional for uniform scaling */
+    border-radius: 0; /* Remove circular shape */
+}
+
+
+/* ======================== SCROLL DOWN =================== */
+.scroll__down {
+    position: absolute;
+    right: 0.8rem;
+    bottom: 5rem;
+    transform: rotate(90deg);
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+/* Media queries to make it responsive.*/
+/* ========================== MEDIA QUERIES (MEDIUM DEVICES) =================== */
+/* tablets */
+@media screen and (max-width: 1024px) {
+    header {
+        height: 68vh;
+    }
+}
+
+/* Media queries to make it responsive.*/
+/* ========================== MEDIA QUERIES (SMALL DEVICES) =================== */
+/* phones */
+@media screen and (max-width: 600px) {
+    header {
+        height: 100vh;
+    }
+
+    /* remove from mobile phones */
+    .header__socials, 
+    .scroll__down {
+        display: none;
+    }
+}
+
+
