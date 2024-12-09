@@ -1,6 +1,4 @@
 /* Base styles for the About section */
-
-
 .about__container {
     display: flex; /* Use flexbox for alignment */
     flex-direction: row; /* Horizontal alignment */
@@ -8,6 +6,17 @@
     align-items: center; /* Align items vertically */
 }
 
+
+#about h5 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+#about h2 {
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
 
 .about__me {
     width: 75%;
@@ -348,7 +357,7 @@
     object-fit: contain;
   }
   
-  .modal-close {
+  .modal-close2 {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -360,7 +369,7 @@
   }
   
   /* Close button hover effect */
-  .modal-close:hover {
+  .modal-close2:hover {
     color: #ff0000;
   }
   

@@ -81,24 +81,10 @@
   
 
   
-  /* Button */
-  .experience__btn {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    margin-top: 1rem;
-    background: var(--color-primary);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.3s;
-  }
-  
-  .experience__btn:hover {
-    background: var(--color-primary-variant);
-  }
-  
+
+
+
+
   
   /* Info container (text and button) */
   .experience__timeline-info {
@@ -143,17 +129,23 @@
     padding: 0.5rem 1.5rem;
     margin-top: 1rem;
     background: var(--color-primary);
-    color: white;
+    color: var(--color-bg);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
     transition: background 0.3s;
+    font-size: 1rem;
   }
   
   .experience__btn:hover {
-    background: var(--color-primary-variant);
+    background: var(--color-white);
+    color: var(--color-bg);
+    border-color: transparent;   
   }
+  
+
+
   
   /* Add animation to make the logo appear more dynamic */
 .experience__timeline-entry {

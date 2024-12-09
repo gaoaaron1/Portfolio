@@ -1,0 +1,209 @@
+/* Testimonials.css */
+#testimonials {
+    padding: 4rem 0;
+    text-align: center;
+  }
+  
+  #testimonials h5 {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  #testimonials h2 {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .testimonial-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .testimonial {
+    display: flex;
+    flex-direction: column; /* Stack the content vertically */
+    justify-content: flex-start; /* Align items at the top */
+    align-items: center; /* Center align content horizontally */
+    background: var(--color-bg-variant);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    min-height: 400px; /* Set a consistent height for all testimonials */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+.testimonial h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: var(--color-primary);
+    text-align: center;
+    white-space: nowrap; /* Prevent wrapping for names */
+}
+
+.testimonial .review {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+    max-height: 6rem; /* Adjust the max height to show more content */
+    overflow: hidden; /* Prevents overflow */
+    text-overflow: ellipsis; /* Adds the ellipsis if the text overflows */
+    display: -webkit-box; /* Necessary for multi-line ellipsis */
+    -webkit-line-clamp: 4; /* Show up to 4 lines of text before truncating, adjust as needed */
+    -webkit-box-orient: vertical; /* Vertical layout for the box */
+    line-height: 1.4; /* Control line height for better readability */
+}
+
+
+.testimonial .company {
+    font-weight: bold;
+    color: var(--color-primary-variant);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.testimonial .phone {
+    font-size: 0.9rem;
+    color: var(--color-light);
+    text-align: center;
+}
+
+  
+  .testimonial:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+/* Modal Styles */
+/* Modal Styles */
+.modal {
+    position: relative;
+    background: var(--color-bg-variant);
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--color-primary);
+    max-height: 80vh; /* This ensures the modal has a maximum height */
+    overflow: hidden; /* Prevents overflow from affecting the overall modal */
+}
+
+/* Ensure the content inside the modal can scroll */
+.modal .content-wrapper {
+    max-height: 70vh; /* Restrict the content height */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    padding-right: 10px; /* To avoid content overlap with scrollbar */
+}
+
+  
+  
+  .modal img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 3px solid var(--color-primary); /* Border around the avatar to match the modal */
+  }
+  
+  .modal h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+  
+  .modal .review {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+  
+  .modal .company {
+    font-weight: bold;
+    color: var(--color-primary-variant);
+    margin-bottom: 1rem;
+  }
+  
+  .modal .phone {
+    font-size: 0.9rem;
+    color: var(--color-light);
+  }
+  
+/* Modal Close Button */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff5722; /* Bold background color */
+    border: none;
+    color: white;  /* Text color to contrast with the background */
+    font-size: 1.8rem;  /* Slightly smaller font for better proportion */
+    padding: 10px 15px; /* Horizontal padding for a more rectangular shape */
+    border-radius: 8px;  /* Rounded corners, but not fully circular */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Subtle shadow for depth */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Close button hover effect */
+  .modal-close:hover {
+    background-color: #ff0000;  /* Change to a red color on hover */
+    transform: scale(1.1);  /* Slight scale effect when hovered */
+  }
+  
+  /* Add focus styles for accessibility */
+  .modal-close:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.5); /* Focus ring */
+  }
+  
+  
+  /* Media Queries for Responsiveness */
+  @media screen and (max-width: 1024px) {
+    .testimonial-container {
+      gap: 1.5rem;
+    }
+    .testimonial {
+      width: 220px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .testimonial-container {
+      gap: 2rem;
+      justify-content: center;
+    }
+    .testimonial {
+      width: 90%;
+    }
+  }
+  

@@ -37,7 +37,7 @@ const TimelineEntry: React.FC<TimelineEntryProps> = ({ role, companyName, compan
 
           {/* Button to Website */}
           <a href={companyUrl} target="_blank" rel="noopener noreferrer">
-            <button className="experience__btn">Visit Website</button>
+            <button className="btn btn-primary">Visit Website</button>
           </a>
         </div>
 
