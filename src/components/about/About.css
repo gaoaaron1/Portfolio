@@ -1,6 +1,4 @@
 /* Base styles for the About section */
-
-
 .about__container {
     display: flex; /* Use flexbox for alignment */
     flex-direction: row; /* Horizontal alignment */

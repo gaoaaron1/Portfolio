@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Testimonials.css';
 import CustomScrollbar from '../about/CustomScrollbar'; // Adjust the path based on where you place the component
 
-const AVTR1 = require('../../assets/avatar1.png');
-const AVTR2 = require('../../assets/avatar2.jpg');
-const AVTR3 = require('../../assets/avatar3.png');
-const AVTR4 = require('../../assets/avatar4.png');
+const AVTR1 = require('../../assets/testimonial/avatar1.png');
+const AVTR2 = require('../../assets/testimonial/avatar2.jpg');
+const AVTR3 = require('../../assets/testimonial/avatar3.png');
+const AVTR4 = require('../../assets/testimonial/avatar4.png');
 
 // Array of testimonial objects
 interface Testimonial {
