@@ -6,6 +6,7 @@ const IMG3 = require('../../assets/project3.png');
 const IMG4 = require('../../assets/project4.png');
 const IMG5 = require('../../assets/project5.png')
 const IMG6 = require('../../assets/project6.png');
+const VID4 = require('../../assets/Ruby-Red.mp4');
 
 
 interface ProjectsItem {
@@ -45,7 +46,7 @@ const data: ProjectsItem[] = [
     image: IMG4,
     title: 'Ruby & Red',
     github: 'https://github.com/gaoaaron1/Ruby-Red',
-    demo: ''  // No demo link, so it will display "Coming Soon"
+    demo: VID4  // No demo link, so it will display "Coming Soon"
   },
   {
     id: 5,
