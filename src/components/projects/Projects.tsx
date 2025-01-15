@@ -4,6 +4,9 @@ const IMG1 = require('../../assets/project1.png');
 const IMG2 = require('../../assets/project2.png');
 const IMG3 = require('../../assets/project3.png');
 const IMG4 = require('../../assets/project4.png');
+const IMG5 = require('../../assets/project5.png')
+const IMG6 = require('../../assets/project6.png');
+
 
 interface ProjectsItem {
   id: number;
@@ -40,10 +43,24 @@ const data: ProjectsItem[] = [
   {
     id: 4,
     image: IMG4,
+    title: 'Ruby & Red',
+    github: 'https://github.com/gaoaaron1/Ruby-Red',
+    demo: ''  // No demo link, so it will display "Coming Soon"
+  },
+  {
+    id: 5,
+    image: IMG5,
     title: 'JusMe',
     github: 'https://github.com/gaoaaron1/JusMe',
     demo: ''  // No demo link, so it will display "Coming Soon"
-  }
+  },
+  {
+    id: 6,
+    image: IMG6,
+    title: 'ChillLearn',
+    github: 'https://github.com/gaoaaron1/ChillLearn',
+    demo: 'https://chill-learn.vercel.app/' 
+  },    
 ];
 
 const Projects: React.FC = () => {
