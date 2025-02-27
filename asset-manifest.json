@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/Portfolio/static/css/main.19d01574.css",
+    "main.js": "/Portfolio/static/js/main.8e37421b.js",
+    "static/media/Ruby-Red.mp4": "/Portfolio/static/media/Ruby-Red.263044b4916920524a89.mp4",
+    "static/media/portrait3.jpg": "/Portfolio/static/media/portrait3.ea78bac2b83b433c6613.jpg",
+    "static/media/avatar3.png": "/Portfolio/static/media/avatar3.b9d399b56b2a75b239cd.png",
+    "static/media/avatar1.png": "/Portfolio/static/media/avatar1.aa69a888231772f65afe.png",
+    "static/media/portrait2.png": "/Portfolio/static/media/portrait2.3497365ab052632c282d.png",
+    "static/media/project4.png": "/Portfolio/static/media/project4.ec77ed0c4bb490cfea36.png",
+    "static/media/project5.png": "/Portfolio/static/media/project5.0b141ab4e7440c7f9ee5.png",
+    "static/media/project6.png": "/Portfolio/static/media/project6.33cadec5b9a9e87d0fcf.png",
+    "static/media/AaronResume.pdf": "/Portfolio/static/media/AaronResume.0dcc544a0f1157b7e89d.pdf",
+    "static/media/CPCLogoFinal(Black).png": "/Portfolio/static/media/CPCLogoFinal(Black).199daa412034bbf31efb.png",
+    "static/media/project2.png": "/Portfolio/static/media/project2.09eeaaea57bf3464ba69.png",
+    "static/media/CalgaryStampedeLogo.png": "/Portfolio/static/media/CalgaryStampedeLogo.7f3b605f7017c58ed378.png",
+    "static/media/project1.png": "/Portfolio/static/media/project1.276ca859685a11bf4574.png",
+    "static/media/YMCA.jpg": "/Portfolio/static/media/YMCA.bc729827609ee95b15fe.jpg",
+    "static/media/avatar2.jpg": "/Portfolio/static/media/avatar2.769943732dd54d4d8c20.jpg",
+    "static/media/project3.png": "/Portfolio/static/media/project3.901d0bcd8cc6bff5cf73.png",
+    "static/media/TutorDoctorLogo.jpg": "/Portfolio/static/media/TutorDoctorLogo.b3d2b88d28d9d691e971.jpg",
+    "static/media/IHPLogo.png": "/Portfolio/static/media/IHPLogo.da624626490222d17521.png",
+    "index.html": "/Portfolio/index.html",
+    "main.19d01574.css.map": "/Portfolio/static/css/main.19d01574.css.map",
+    "main.8e37421b.js.map": "/Portfolio/static/js/main.8e37421b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19d01574.css",
+    "static/js/main.8e37421b.js"
+  ]
+}
