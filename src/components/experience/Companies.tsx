@@ -62,7 +62,7 @@ const Companies: React.FC = () => {
         role="AI Evaluator"
         companyName="Outlier AI"
         companyUrl="https://outlier.ai/"
-        period="Jan 2024 - Present"
+        period="Jan 2024 - Jul 2024"
         responsibilities={[
           'Analyzed various code solutions attempting to address user prompts, identifying strengths, weaknesses, and areas for improvement',
           'Developed test scenarios to assess AI performance on complex real-world challenges and edge cases',
@@ -72,14 +72,15 @@ const Companies: React.FC = () => {
       />
 
       <TimelineEntry
-        role="Full Stack Developer"
+        role=".NET Developer"
         companyName="Interact Health PRO"
         companyUrl="https://interacthealthpro.com/"
-        period="Aug 2023 - Present"
+        period="Aug 2023 - Dec 2024"
         responsibilities={[
-          'Designed RESTful APIs for customer platforms',
-          'Implemented database solutions using MySQL',
-          'Automated server-side processes to optimize workflows',
+          'Mentored 5‐6 interns, providing guidance on software development best practices, troubleshooting, and helping them develop professional skills in a real‐world environment',
+          'Developed back‐end functionality with ASP.NET Core, Entity Framework, and C#, focusing on scalability, security, and performance for health and legal service applications.',
+          'Implemented the MVC architecture to streamline the application design and improve maintainability, enhancing the overall development process.',
+          'Collaborated with cross‐functional teams using Jira for project management, tracking progress, and maintaining clear communication of task prioritization and deadlines.'
         ]}
         logoUrl={IHPLogo}
       />
@@ -88,7 +89,7 @@ const Companies: React.FC = () => {
         role="Academic Tutor"
         companyName="Tutor Doctor"
         companyUrl="https://www.tutordoctor.com/calgary/"
-        period="Jan 2020 - Present"
+        period="Jan 2020 - June 2024"
         responsibilities={[
           'Mentored 20+ students (grades 7-12), enhancing their understanding of course material',
           'Developed personalized tutoring content, including lesson plans, practice problems, and resources',

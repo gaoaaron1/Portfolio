@@ -46,14 +46,7 @@ const data: ProjectsItem[] = [
     image: IMG4,
     title: 'Ruby & Red',
     github: 'https://github.com/gaoaaron1/Ruby-Red',
-    demo: VID4  // No demo link, so it will display "Coming Soon"
-  },
-  {
-    id: 5,
-    image: IMG5,
-    title: 'JusMe',
-    github: 'https://github.com/gaoaaron1/JusMe',
-    demo: ''  // No demo link, so it will display "Coming Soon"
+    demo: 'https://rubyredhome.com/' 
   },
   {
     id: 6,
